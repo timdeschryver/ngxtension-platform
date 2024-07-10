@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`convertLoadComponentGenerator should migrate namespace imports 1`] = `
+"
+import { Routes } from '@angular/router';
+import * as Components from './components';
+
+export const MenuRoutes: Routes = [
+  {
+    path: 'menu',
+    loadComponent: () => import('./components').then((c) => c.MenuListComponent)
+  },
+];
+"
+`;
+
+exports[`convertLoadComponentGenerator should update all components to loadComponents 1`] = `
+"
+import { Routes } from '@angular/router';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { HelpComponent } from '@/help.component';
+
+export const MenuRoutes: Routes = [
+  {
+    path: 'menu',
+    loadComponent: () => import('./menu-list/menu-list.component').then((c) => c.MenuListComponent)
+  },
+  {
+    path: 'help',
+    loadComponent: () => import('@/help.component').then((c) => c.HelpComponent)
+  },
+];
+"
+`;
+
+exports[`convertLoadComponentGenerator should update component to loadComponent 1`] = `
+"
+import { Routes } from '@angular/router';
+import { MenuListComponent } from './menu-list/menu-list.component';
+
+export const MenuRoutes: Routes = [
+  {
+    path: 'menu',
+    loadComponent: () => import('./menu-list/menu-list.component').then((c) => c.MenuListComponent)
+  },
+];
+"
+`;
+
+exports[`convertLoadComponentGenerator should use the "real" component name instead of alias given to the import 1`] = `
+"
+import { Routes } from '@angular/router';
+import { MenuListComponent as FooComponent } from './menu-list/menu-list.component';
+
+export const MenuRoutes: Routes = [
+  {
+    path: 'menu',
+    loadComponent: () => import('./menu-list/menu-list.component').then((c) => c.MenuListComponent)
+  },
+];
+"
+`;

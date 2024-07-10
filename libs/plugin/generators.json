@@ -26,6 +26,11 @@
 			"factory": "./src/generators/convert-queries/generator",
 			"schema": "./src/generators/convert-queries/schema.json",
 			"description": "libs/plugin/src/generators/convert-queries/ generator"
+		},
+		"convert-to-load-component": {
+			"factory": "./src/generators/convert-to-load-component/generator",
+			"schema": "./src/generators/convert-to-load-component/schema.json",
+			"description": "libs/plugin/src/generators/convert-to-load-component/ generator"
 		}
 	},
 	"schematics": {
@@ -60,6 +65,11 @@
 			"factory": "./src/generators/convert-queries/compat",
 			"schema": "./src/generators/convert-queries/schema.json",
 			"description": "libs/plugin/src/generators/convert-queries/ generator"
+		},
+		"convert-to-load-component": {
+			"factory": "./src/generators/convert-to-load-component/compat",
+			"schema": "./src/generators/convert-to-load-component/schema.json",
+			"description": "libs/plugin/src/generators/convert-to-load-component/ generator"
 		}
 	}
 }
